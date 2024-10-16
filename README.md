@@ -1,22 +1,16 @@
 # Introducción 
 
-**Bienvenido a tu primera tarea!**
+**Bienvenido a tu tercera tarea!**
 
-La posada **"Gilded Rose"** (Rosa Dorada) te ha contratado para expandir su actual software de gestión de inventario.
-
-Las especificaciones del código actual y los cambios que quieren que añadas, así como ciertas restricciones, están especificados en el documento **GildedRoseRequirements_es.md**, en este mismo repositorio.
-Deberías leerlo ahora, antes de seguir con este documento.
+Siguiendo con el refactor que hicimos en la segunda tarea, vas a aplicar los principios SOLID para eliminar por completo el acoplamiento entre la clase Gilded Rose y la lógica de actualización de calidad de los objetos.
+Utiliza lo aprendido (sobre todo el principio D) para esto.
 
 ## Tests
 
-Te hemos proporcionado dos tipos de tests, para ayudarte con tu trabajo. 
+Los tests deberían ser suficientes para comprobar la funcionalidad actual, y como no hay que cambiar nada, te valdrán durante el proceso de refactor.
+Aun así, si cambias suficiente la estructura del código o introduces nuevas funciones o métodos, quizá quieras extenderlos.
 
-Por un lado tienes tests unitarios, que te dirán si el cálculo de la calidad de tipos de objetos específicos se está realizando bien. Como podrás ver, uno de los tests, el de objetos Conjurados, está fallando a día de hoy.
-Por otro lado, tienes un test de aceptación que comprueba si el sistema completo se comporta como se espera. Este test no está actualizado para tener en cuenta los cambios que debes implementar, así que si quieres aprovecharlo para los nuevos objetos, tendrás que actualizar los valores de las líneas que comienzan por "Conjured Mana Cake" a lo que deberían valer si los objetos Conjurados se gestionaran adecuadamente.
-
-## Sugerencias 
-Te recomendamos que utilices Visual Studio 2022 para esta práctica, pero eres libre de hacerlo como quieras.
-
+ 
 ## Entrega
 Cuando tus cambios estén listos, o te quedes sin tiempo, abre una Pull Request desde la rama donde los has implementado. ***Si creas la rama pero no abres la Pull Request, no se considerará entregado***. 
 La fecha límite de entrega podrás verla en Github Classroom
