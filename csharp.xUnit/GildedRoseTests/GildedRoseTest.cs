@@ -9,7 +9,7 @@ public class GildedRoseTest
     [Fact]
     public void foo()
     {
-        IList<Item> Items = new List<Item> { new Item { Name = "foo", SellIn = 0, Quality = 0 } };
+        IList<Item> Items = new List<Item> { new UpdatableItem { Name = "foo", SellIn = 0, Quality = 0 } };
         GildedRose app = new GildedRose(Items);
         app.UpdateQuality();
         Assert.Equal("foo", Items[0].Name);
@@ -26,7 +26,7 @@ public class GildedRoseTest
     public void TestNormalItem()
     {
         // Set up the item
-        Item item = new Item { Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20 };
+        Item item = new UpdatableItem { Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20 };
         IList<Item> Items = new List<Item> { item };
         GildedRose app = new GildedRose(Items);
 
@@ -50,7 +50,7 @@ public class GildedRoseTest
     public void TestAgedBrie()
     {
         // Set up the item
-        Item item = new Item { Name = "Aged Brie", SellIn = 10, Quality = 20 };
+        Item item = new AgedBrie { Name = "Aged Brie", SellIn = 10, Quality = 20 };
         IList<Item> Items = new List<Item> { item };
         GildedRose app = new GildedRose(Items);
 
@@ -74,7 +74,7 @@ public class GildedRoseTest
     public void TestSulfuras()
     {
         // Set up the item
-        Item item = new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 20, Quality = 80 };
+        Item item = new Sulfuras { Name = "Sulfuras, Hand of Ragnaros", SellIn = 20, Quality = 80 };
         IList<Item> Items = new List<Item> { item };
         GildedRose app = new GildedRose(Items);
 
@@ -93,7 +93,7 @@ public class GildedRoseTest
     public void TestBackstagePasses()
     {
         // Set up the item
-        Item item = new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 20, Quality = 20 };
+        Item item = new BackstagePass { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 20, Quality = 20 };
         IList<Item> Items = new List<Item> { item };
         GildedRose app = new GildedRose(Items);
 
@@ -135,7 +135,7 @@ public class GildedRoseTest
     public void TestConjured()
     {
         // Set up the item
-        Item item = new Item { Name = "Conjured Mana Cake", SellIn = 20, Quality = 50 };
+        Item item = new ConjuredItem { Name = "Conjured Mana Cake", SellIn = 20, Quality = 50 };
         IList<Item> Items = new List<Item> { item };
         GildedRose app = new GildedRose(Items);
 
