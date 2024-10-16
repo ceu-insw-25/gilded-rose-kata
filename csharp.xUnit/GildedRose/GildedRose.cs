@@ -13,7 +13,7 @@ public class GildedRose
 
     public void UpdateQuality()
     {
-        foreach (IUpdatableItem item in Items)
+        foreach (UpdatableItem item in Items)
         {
             {
                 item.updateQuality();

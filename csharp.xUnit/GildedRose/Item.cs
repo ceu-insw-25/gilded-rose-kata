@@ -1,4 +1,6 @@
-﻿namespace GildedRoseKata;
+﻿using System;
+
+namespace GildedRoseKata;
 
 public class Item
 {
@@ -7,28 +9,22 @@ public class Item
     public int Quality { get; set; }
 }
 
-public interface IUpdatableItem
+public interface IUpdatable
 {
     public void updateQuality();
 }
 
-public class Sulfuras : Item, IUpdatableItem
-{
-    public void updateQuality()
-    {
-        return;
-    }
-}
-
-public class DefaultItem : Item, IUpdatableItem
+public class UpdatableItem: Item, IUpdatable
 {
     public readonly int MaxQuality = 50;
 
-    public void updateQuality() { 
+    public virtual void updateQuality()
+    {
         SellIn -= 1;
         Quality -= 1;
 
-        if (SellIn < 0){
+        if (SellIn < 0)
+        {
             Quality -= 1;
         }
 
@@ -37,12 +33,25 @@ public class DefaultItem : Item, IUpdatableItem
             Quality = 0;
         }
     }
+    public virtual void SetMaxQuality()
+    {
+        if (Quality > MaxQuality)
+        {
+            Quality = MaxQuality;
+        }
+    }
+}
+public class Sulfuras : UpdatableItem
+{
+    override public void updateQuality()
+    {
+        Quality = 80;
+    }
 }
 
-public class AgedBrie : Item, IUpdatableItem
+public class AgedBrie : UpdatableItem
 {
-    public readonly int MaxQuality = 50;
-    public void updateQuality()
+    override public void updateQuality()
     {
         SellIn -= 1;
         Quality += 1;
@@ -50,18 +59,13 @@ public class AgedBrie : Item, IUpdatableItem
         {
             Quality += 1;
         }
-
-        if (Quality > 50)
-        {
-            Quality = 50;
-        }
+        SetMaxQuality();
     }
 }
 
-public class BackstagePass : Item, IUpdatableItem
+public class BackstagePass : UpdatableItem
 {
-    public readonly int MaxQuality = 50;
-    public void updateQuality()
+    override public void updateQuality()
     {
         SellIn = SellIn - 1;
         if (SellIn < 0)
@@ -82,18 +86,14 @@ public class BackstagePass : Item, IUpdatableItem
         }
 
 
-        if (Quality > 50)
-        {
-            Quality = 50;
-        }
+        SetMaxQuality();
+
     }
 }
 
-public class ConjuredItem : Item, IUpdatableItem
+public class ConjuredItem : UpdatableItem
 {
-    public readonly int MaxQuality = 50;
-
-    public void updateQuality()
+    override public void updateQuality()
     {
         SellIn -= 1;
         Quality -= 2;
@@ -107,9 +107,8 @@ public class ConjuredItem : Item, IUpdatableItem
         {
             Quality = 0;
         }
-        if (Quality > 50)
-        {
-            Quality = 50;
-        }
+
+        SetMaxQuality();
+
     }
 }
